@@ -1,65 +1,52 @@
 import Image from "next/image";
+import heroImage from "../../public/portrait.png";
+import { MainDock } from "@/components/layout";
+const dockItems = ["home", "work", "about", "contact", "github", "back"];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#9ca0a3] text-[#efefef]">
+      <section className="relative h-screen w-full max-w-[1600px]">
+        <p className="absolute left-6 top-7 z-20 text-sm font-medium tracking-tight text-white/85 sm:left-12 sm:text-2xl">
+          @ Developed by Saurabh
+        </p>
+
+        <p className="absolute right-6 top-7 z-20 max-w-1/3 text-right font-normal text-sm leading-tight text-white/75 sm:right-12 sm:text-lg">
+          Passionate Creative Designer and Developer, dedicated to crafting innovative solutions and exceptional digital
+          experiences through modern technologies
+        </p>
+
+        <div className="absolute inset-x-0 top-[10%] z-10 flex justify-center px-6">
+          <div className="relative h-[40vh] w-[min(92vw,640px)] overflow-hidden grayscale sm:h-[56vh] sm:w-[min(70vw,720px)]">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src= {heroImage}
+              alt="Developer portrait"
+              fill
+              priority
+              className="object-contain"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
-    </div>
+
+        <button
+          type="button"
+          aria-label="Open portfolio"
+          className="absolute right-[30%] top-[41%] z-20 flex h-16 w-16 items-center justify-center rounded-full border border-white/40 text-white/55 transition hover:scale-105 hover:border-white/70 hover:text-white sm:h-28 sm:w-28"
+        >
+          <svg viewBox="0 0 24 24" className="h-8 w-8 sm:h-12 sm:w-12" fill="none" stroke="currentColor" strokeWidth="1.4">
+            <path d="M6 18L18 6" />
+            <path d="M8 6h10v10" />
+          </svg>
+        </button>
+
+        <h1 className="pointer-events-none absolute bottom-[20%] left-1/2 z-20 w-full -translate-x-1/2 whitespace-nowrap text-center text-[20vw] font-semibold leading-none tracking-[-0.02em] text-white/90 sm:text-[15vw] lg:text-[14.5vw]">
+          Creative Developer &
+        </h1>
+
+        <div className="absolute bottom-10 left-1/2 z-30 -translate-x-1/2 rounded-2xl bg-[#151515]/95 shadow-[0_14px_30px_rgba(0,0,0,0.28)] backdrop-blur-sm">
+          <MainDock />
+        </div>
+      </section>
+    </main>
   );
 }
